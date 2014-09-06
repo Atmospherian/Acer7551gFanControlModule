@@ -113,7 +113,7 @@ int thread_fn(void *data)
   return 0;
 }
 
-static int __init hello_2_init_module(void)
+static int __init init_fan_module(void)
 {
   char name[16]="acer_fan_control";
   printk(KERN_CRIT "Fan control started\n");
@@ -126,7 +126,7 @@ static int __init hello_2_init_module(void)
   return 0;
 }
 
-static void __exit hello_2_exit(void)
+static void __exit fan_module_exit(void)
 {
   
   int ret;
@@ -136,8 +136,8 @@ static void __exit hello_2_exit(void)
   printk(KERN_CRIT "Fan control cleanup\n");
 }
 
-module_init(hello_2_init_module);
-module_exit(hello_2_exit);
+module_init(init_fan_module);
+module_exit(fan_module_exit);
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Jason Miesionczek");
